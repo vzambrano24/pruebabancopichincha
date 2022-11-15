@@ -1,0 +1,598 @@
+{
+	"info": {
+		"_postman_id": "9bb7900a-9698-4939-a452-4694b6c891d7",
+		"name": "Prueba QA Banco Pichincha",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2211519"
+	},
+	"item": [
+		{
+			"name": "Creacion de cuenta",
+			"item": [
+				{
+					"name": "Creacion de Cuenta (usuario nuevo)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var raw_body = {\r",
+									"    \"username\": `usuariopichincha${Date.now()}`,\r",
+									"    \"password\": \"demopichincha\"\r",
+									"};\r",
+									"var body_json = JSON.stringify(raw_body);\r",
+									"pm.request.body.raw = body_json;\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body is correct\", function () {    \r",
+									"    pm.response.json()\r",
+									"    pm.expect(pm.response.json()).to.be.a(\"string\");\r",
+									"    pm.expect(pm.response.json()).to.eql(\"\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"vitoria2022\",\r\n    \"password\": \"demopichincha\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{body}}/signup",
+							"host": [
+								"{{body}}"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Creacion de Cuenta (usuario nuevo)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"vitoria2022\",\r\n    \"password\": \"demopichincha\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.demoblaze.com/signup",
+									"protocol": "https",
+									"host": [
+										"api",
+										"demoblaze",
+										"com"
+									],
+									"path": [
+										"signup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "\"\""
+						}
+					]
+				},
+				{
+					"name": "Creacion de Cuenta (usuario existente)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Usuario existente\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.have.jsonBody({\r",
+									"    \"errorMessage\": \"This user already exist.\"\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"vitoria1991\",\r\n    \"password\": \"UGljaGluY2hhMQ==\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{body}}/signup",
+							"host": [
+								"{{body}}"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Creacion de Cuenta (usuario existente)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"vitoria1991\",\r\n    \"password\": \"UGljaGluY2hhMQ==\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.demoblaze.com/signup",
+									"protocol": "https",
+									"host": [
+										"api",
+										"demoblaze",
+										"com"
+									],
+									"path": [
+										"signup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "\"\""
+						}
+					]
+				},
+				{
+					"name": "Creacion de Cuenta (complejidad password)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var raw_body = {\r",
+									"    \"username\": `usuariopichincha${Date.now()}`,\r",
+									"    \"password\": \"hola\"\r",
+									"};\r",
+									"var body_json = JSON.stringify(raw_body);\r",
+									"pm.request.body.raw = body_json;"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Complejidad password\", function () {    \r",
+									"    pm.response.json()\r",
+									"    pm.expect(pm.response.json()).to.eql({\r",
+									"    \"errorMessage\": \"El password no debe ser menor a 8 caracteres\"\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"vitoria199\",\r\n    \"password\": \"vitoria199\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{body}}/signup",
+							"host": [
+								"{{body}}"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Creacion de Cuenta (campos vacios)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400 Bad request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Request campos vacios\", function () {    \r",
+									"    pm.response.json()\r",
+									"    pm.expect(pm.response.json()).to.eql({\r",
+									"    \"errorMessage\": \"Debe enviar la informacion correcta\"\r",
+									"    });\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"\",\r\n    \"password\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{body}}/signup",
+							"host": [
+								"{{body}}"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Creacion de Cuenta (Request Invalido)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400 Bad request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Request body parametros incompletos\", function () {    \r",
+									"    pm.response.json()\r",
+									"    pm.expect(pm.response.json()).to.eql({\r",
+									"    \"errorMessage\": \"Bad parameter, missing username or password\"\r",
+									"    });\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"vitoria1991\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{body}}/signup",
+							"host": [
+								"{{body}}"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Creacion de Cuenta (campos invalidos)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var raw_body = {\r",
+									"    \"username\": `Tempor sit erat diam autem elitr dolor placerat. Accusam no rebum duo erat voluptua molestie justo accusam at duo no aliquip zzril aliquip elitr praesent in. Ullamcorper erat rebum labore erat invidunt ullamcorper feugait justo molestie no diam aliquam. Ea nibh nam erat consetetur accusam justo diam at et. Ea lobortis lorem ipsum gubergren labore sed sed duo dolore tincidunt takimata vero ut dolore stet duo ipsum dolore. Ipsum duo vero dolore et ipsum rebum. Voluptua gubergren illum lorem sadipscing sanctus ipsum dolor ipsum takimata aliquyam lorem magna.${Date.now()}`,\r",
+									"    \"password\": \"Tempor sit erat diam autem elitr dolor placerat. Accusam no rebum duo erat voluptua molestie justo accusam at duo no aliquip zzril aliquip elitr praesent in. Ullamcorper erat rebum labore erat invidunt ullamcorper feugait justo molestie no diam aliquam. Ea nibh nam erat consetetur accusam justo diam at et. Ea lobortis lorem ipsum gubergren labore sed sed duo dolore tincidunt takimata vero ut dolore stet duo ipsum dolore. Ipsum duo vero dolore et ipsum rebum. Voluptua gubergren illum lorem sadipscing sanctus ipsum dolor ipsum takimata aliquyam lorem magna.\"\r",
+									"};\r",
+									"var body_json = JSON.stringify(raw_body);\r",
+									"pm.request.body.raw = body_json;"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200 OK\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Request body campos con logitud maxima\", function () {    \r",
+									"    pm.response.json()\r",
+									"    pm.expect(pm.response.json()).to.eql({\r",
+									"    \"errorMessage\": \"Los campos Usuario y password tienen que tener maximo (80) carateres\"\r",
+									"    });\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Tempor sit erat diam autem elitr dolor placerat. Accusam no rebum duo erat voluptua molestie justo accusam at duo no aliquip zzril aliquip elitr praesent in. Ullamcorper erat rebum labore erat invidunt ullamcorper feugait justo molestie no diam aliquam. Ea nibh nam erat consetetur accusam justo diam at et. Ea lobortis lorem ipsum gubergren labore sed sed duo dolore tincidunt takimata vero ut dolore stet duo ipsum dolore. Ipsum duo vero dolore et ipsum rebum. Voluptua gubergren illum lorem sadipscing sanctus ipsum dolor ipsum takimata aliquyam lorem magna.\",\r\n    \"password\": \"Tempor sit erat diam autem elitr dolor placerat. Accusam no rebum duo erat voluptua molestie justo accusam at duo no aliquip zzril aliquip elitr praesent in. Ullamcorper erat rebum labore erat invidunt ullamcorper feugait justo molestie no diam aliquam. Ea nibh nam erat consetetur accusam justo diam at et. Ea lobortis lorem ipsum gubergren labore sed sed duo dolore tincidunt takimata vero ut dolore stet duo ipsum dolore. Ipsum duo vero dolore et ipsum rebum. Voluptua gubergren illum lorem sadipscing sanctus ipsum dolor ipsum takimata aliquyam lorem magna.==\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{body}}/signup",
+							"host": [
+								"{{body}}"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "**Pruebas de creacion de cuenta**"
+		},
+		{
+			"name": "Inicio de sesion",
+			"item": [
+				{
+					"name": "Inicio de sesion (credenciales validas)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body is correct include Auth_token\", function () {    \r",
+									"    pm.response.json()\r",
+									"    pm.expect(pm.response.json()).to.be.a(\"string\");\r",
+									"    pm.expect(pm.response.json()).to.include(\"Auth_token\")\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"vitoria1991\",\r\n    \"password\": \"UGljaGluY2hhMQ==\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{body}}/login",
+							"host": [
+								"{{body}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Inicio de sesion (credenciales invalidas)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Respuesta indicando error\", function () {\r",
+									"    pm.response.to.have.jsonBody({\r",
+									"    \"errorMessage\": \"Wrong password.\"\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"credenciales invalidas mensaje generico\", function () {\r",
+									"\r",
+									"    pm.expect(pm.response.json()).to.eql({\r",
+									"    \"errorMessage\": \"usuario o password invalidos\"\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"vitoria1991\",\r\n    \"password\": \"UGljaGluY2hhMQ==     \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{body}}/login",
+							"host": [
+								"{{body}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Inicio de sesion (usuario no existe)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Respuesta indicando error\", function () {\r",
+									"    pm.response.to.have.jsonBody({\r",
+									"    \"errorMessage\": \"User does not exist.\"\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"credenciales invalidas mensaje generico\", function () {\r",
+									"\r",
+									"    pm.expect(pm.response.json()).to.eql({\r",
+									"    \"errorMessage\": \"usuario o password invalidos\"\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"\\u00F1vitoria1991\",\r\n    \"password\": \"     \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{body}}/login",
+							"host": [
+								"{{body}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "body",
+			"value": "https://api.demoblaze.com",
+			"type": "string"
+		}
+	]
+}

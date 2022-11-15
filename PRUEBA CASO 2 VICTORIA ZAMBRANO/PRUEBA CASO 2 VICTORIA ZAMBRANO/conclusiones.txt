@@ -1,0 +1,25 @@
+############################################################################################
+CONCLUSIONES
+############################################################################################
+
+1. Nivel UI y Api Rest
+
+	*Mensajes de error y exito no coinciden con lo mostrado en pantalla web.
+	*No existen validaciones a nivel de frontend, ni a nivel de backend.
+
+2. SEGURIDADES
+	*Token generado no coincide con estandar establecido para aplicaciones web
+	*El password no viaja encriptado solo viaja a en base64
+	*El api no valida tamanos maximo y minimo de caracteres, caracteres especiales, espacios en blanco
+	*no existe validaciones a nivel de complejidad de password.
+	*No existe controles para denegar un ataque.
+	*No se bloquea el usuario al ingresar numerosas veces el password invalido
+	*Devuelve mensajes de usuario donde se puede comprobar facilmente que un usuario esta registrado
+
+3. MENSAJES, ESQUEMAS, CODIGOS HTTP
+	*No existe un estandar de codigos Http usados en errores, resultados exitosos y validaciones
+	*En errores tipo 500 devuelve mucha informacion en donde se puede identificar facilmente las tecnologias usadas.
+	*No maneja esquemas o tipos de datos estandar en respuestas, por ejemplo devulve tipos string y tipos json en un mismo endpoint.
+
+4. MEJORAS
+	*Para realizar mejoras tanto a nivel de seguidad, mensajes entre otros se puede seguir el estandar OWASP.

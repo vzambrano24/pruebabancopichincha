@@ -1,0 +1,394 @@
+{
+	"id": "ae8bf8be-4f24-4092-8b16-2b2490f39863",
+	"name": "Prueba QA Banco Pichincha",
+	"timestamp": "2022-11-15T04:37:53.803Z",
+	"collection_id": "2211519-9bb7900a-9698-4939-a452-4694b6c891d7",
+	"folder_id": 0,
+	"environment_id": "2211519-ebb28a6d-22d0-4317-a256-fcb1904092d8",
+	"totalPass": 24,
+	"totalFail": 14,
+	"results": [
+		{
+			"id": "459b2952-d697-4f1d-a48c-f87c788a9f5a",
+			"name": "Creacion de Cuenta (usuario nuevo)",
+			"time": 359,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 2,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 2,
+					"fail": 0
+				}
+			},
+			"times": [
+				390,
+				359
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body is correct": true
+				},
+				{
+					"Status code is 200": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "00954c3d-1093-4d32-8f6f-d38e12d9eb3e",
+			"name": "Creacion de Cuenta (usuario existente)",
+			"time": 237,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Usuario existente": true
+			},
+			"testPassFailCounts": {
+				"Usuario existente": {
+					"pass": 2,
+					"fail": 0
+				}
+			},
+			"times": [
+				187,
+				237
+			],
+			"allTests": [
+				{
+					"Usuario existente": true
+				},
+				{
+					"Usuario existente": true
+				}
+			]
+		},
+		{
+			"id": "106d2277-1cbb-437e-a20a-7d3e0b2e6306",
+			"name": "Creacion de Cuenta (complejidad password)",
+			"time": 469,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Complejidad password": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 2,
+					"fail": 0
+				},
+				"Complejidad password": {
+					"pass": 0,
+					"fail": 2
+				}
+			},
+			"times": [
+				242,
+				469
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Complejidad password": false
+				},
+				{
+					"Status code is 200": true,
+					"Complejidad password": false
+				}
+			]
+		},
+		{
+			"id": "8cbc4930-9318-445e-8e6d-286970a5d2b2",
+			"name": "Creacion de Cuenta (campos vacios)",
+			"time": 216,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"Status code is 400 Bad request": false,
+				"Request campos vacios": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400 Bad request": {
+					"pass": 0,
+					"fail": 2
+				},
+				"Request campos vacios": {
+					"pass": 0,
+					"fail": 2
+				}
+			},
+			"times": [
+				366,
+				216
+			],
+			"allTests": [
+				{
+					"Status code is 400 Bad request": false,
+					"Request campos vacios": false
+				},
+				{
+					"Status code is 400 Bad request": false,
+					"Request campos vacios": false
+				}
+			]
+		},
+		{
+			"id": "14731d3b-433f-412d-91e6-906be48de1b1",
+			"name": "Creacion de Cuenta (Request Invalido)",
+			"time": 174,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 400 Bad request": false,
+				"Request body parametros incompletos": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400 Bad request": {
+					"pass": 0,
+					"fail": 2
+				},
+				"Request body parametros incompletos": {
+					"pass": 2,
+					"fail": 0
+				}
+			},
+			"times": [
+				369,
+				174
+			],
+			"allTests": [
+				{
+					"Status code is 400 Bad request": false,
+					"Request body parametros incompletos": true
+				},
+				{
+					"Status code is 400 Bad request": false,
+					"Request body parametros incompletos": true
+				}
+			]
+		},
+		{
+			"id": "91e961fc-f7a0-4280-b646-c0a3152d40f4",
+			"name": "Creacion de Cuenta (campos invalidos)",
+			"time": 316,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200 OK": true,
+				"Request body campos con logitud maxima": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200 OK": {
+					"pass": 2,
+					"fail": 0
+				},
+				"Request body campos con logitud maxima": {
+					"pass": 0,
+					"fail": 2
+				}
+			},
+			"times": [
+				403,
+				316
+			],
+			"allTests": [
+				{
+					"Status code is 200 OK": true,
+					"Request body campos con logitud maxima": false
+				},
+				{
+					"Status code is 200 OK": true,
+					"Request body campos con logitud maxima": false
+				}
+			]
+		},
+		{
+			"id": "5e73f4b3-943b-4220-8653-cf5a16af1f81",
+			"name": "Inicio de sesion (credenciales validas)",
+			"time": 202,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body is correct include Auth_token": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 2,
+					"fail": 0
+				},
+				"Body is correct include Auth_token": {
+					"pass": 2,
+					"fail": 0
+				}
+			},
+			"times": [
+				404,
+				202
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body is correct include Auth_token": true
+				},
+				{
+					"Status code is 200": true,
+					"Body is correct include Auth_token": true
+				}
+			]
+		},
+		{
+			"id": "1f159442-3280-40ee-978d-04a9997a89cc",
+			"name": "Inicio de sesion (credenciales invalidas)",
+			"time": 270,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Respuesta indicando error": true,
+				"credenciales invalidas mensaje generico": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 2,
+					"fail": 0
+				},
+				"Respuesta indicando error": {
+					"pass": 2,
+					"fail": 0
+				},
+				"credenciales invalidas mensaje generico": {
+					"pass": 0,
+					"fail": 2
+				}
+			},
+			"times": [
+				261,
+				270
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Respuesta indicando error": true,
+					"credenciales invalidas mensaje generico": false
+				},
+				{
+					"Status code is 200": true,
+					"Respuesta indicando error": true,
+					"credenciales invalidas mensaje generico": false
+				}
+			]
+		},
+		{
+			"id": "dc40d320-2db7-4437-ac5c-16ed21252b1a",
+			"name": "Inicio de sesion (usuario no existe)",
+			"time": 385,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Respuesta indicando error": true,
+				"credenciales invalidas mensaje generico": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 2,
+					"fail": 0
+				},
+				"Respuesta indicando error": {
+					"pass": 2,
+					"fail": 0
+				},
+				"credenciales invalidas mensaje generico": {
+					"pass": 0,
+					"fail": 2
+				}
+			},
+			"times": [
+				179,
+				385
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Respuesta indicando error": true,
+					"credenciales invalidas mensaje generico": false
+				},
+				{
+					"Status code is 200": true,
+					"Respuesta indicando error": true,
+					"credenciales invalidas mensaje generico": false
+				}
+			]
+		}
+	],
+	"count": 2,
+	"totalTime": 5429,
+	"collection": {
+		"requests": [
+			{
+				"id": "459b2952-d697-4f1d-a48c-f87c788a9f5a",
+				"method": "POST"
+			},
+			{
+				"id": "00954c3d-1093-4d32-8f6f-d38e12d9eb3e",
+				"method": "POST"
+			},
+			{
+				"id": "106d2277-1cbb-437e-a20a-7d3e0b2e6306",
+				"method": "POST"
+			},
+			{
+				"id": "8cbc4930-9318-445e-8e6d-286970a5d2b2",
+				"method": "POST"
+			},
+			{
+				"id": "14731d3b-433f-412d-91e6-906be48de1b1",
+				"method": "POST"
+			},
+			{
+				"id": "91e961fc-f7a0-4280-b646-c0a3152d40f4",
+				"method": "POST"
+			},
+			{
+				"id": "5e73f4b3-943b-4220-8653-cf5a16af1f81",
+				"method": "POST"
+			},
+			{
+				"id": "1f159442-3280-40ee-978d-04a9997a89cc",
+				"method": "POST"
+			},
+			{
+				"id": "dc40d320-2db7-4437-ac5c-16ed21252b1a",
+				"method": "POST"
+			}
+		]
+	}
+}

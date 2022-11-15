@@ -1,0 +1,20 @@
+##############################################################################################################
+CONCLUSIONES Y HALLAZGOS
+#############################################################################################################
+	1. Para la carga del arvhivo se tuvo que instalar una libreria npm install --save-dev cypress-file-upload
+   	que permitió realizar la carga de un documento. 
+	2. En la carpeta  cypress/support/commands.js se añadio en ese archivo la siguiente línea de código 
+ 	import 'cypress-file-upload';
+	3. Se realizó la búsqueda de los selectores desde el padre hasta encontrar el elemento hijo. 
+	4. Se utilizó el BeforeEach de la función Hooks y el it para describir cada caso.
+	5. Se utilizó la última versión de cypress 11.0.1
+	6. Las preubas E2E se realizaron en Cypress ya que al ser asincrono, no se tenia que seguir un orden secuencial
+	permitiendo realizar las pruebas con mayor rápidez, ya que cuenta con una interfaz de usuario amigable.
+Nivel de UI 
+	1. Los campos de fecha se puede registrar cualquier valor y solo se debe permitir tipo fecha, por lo que no se visualiza
+	las validaciones a nivel de frontend
+	2. Los archivos que se suben no cuenta con validación de limite de tamaño y se puede cargar cualquier tipo de documento. 
+	3. Los campos de texto permite realizar cualquier cantidad de caracteres. 
+Seguridades
+	1. No existe controles para denegar un ataque.
+
